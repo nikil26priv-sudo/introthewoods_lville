@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trails · Lawrenceville Woods</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --forest: #1a3a1a; --fern: #4a7c3f; --sage: #7aaa6a; --mist: #c8dfc0; --cream: #f4f0e6; --gold: #c8a84b; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--forest); font-family: 'Crimson Pro', Georgia, serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3rem; background: rgba(26,58,26,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(200,223,192,0.15); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--mist); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--mist); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  .page-hero { background: var(--forest); padding: 9rem 4rem 5rem; text-align: center; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; font-weight: 500; display: block; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--cream); margin-bottom: 1rem; }
+  .page-hero p { color: rgba(200,223,192,0.7); font-size: 1.15rem; font-weight: 300; max-width: 500px; margin: 0 auto; line-height: 1.8; }
+
+  .trails-section { padding: 5rem 4rem; max-width: 1100px; margin: 0 auto; }
+
+  .coming-soon { text-align: center; padding: 5rem 2rem; border: 1px solid rgba(74,124,63,0.2); margin-top: 3rem; }
+  .coming-soon h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--forest); margin-bottom: 1rem; }
+  .coming-soon p { font-size: 1.1rem; color: #3a3a2a; font-weight: 300; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+
+  .trail-placeholder { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .trail-card { background: white; border: 1px solid rgba(74,124,63,0.12); padding: 2rem; border-left: 3px solid var(--fern); opacity: 0.45; }
+  .trail-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--forest); }
+  .trail-meta { display: flex; gap: 1rem; margin-bottom: 0.75rem; }
+  .trail-tag { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,124,63,0.08); color: var(--fern); padding: 0.2rem 0.6rem; }
+  .trail-desc { font-size: 1rem; color: #555; font-weight: 300; line-height: 1.6; }
+
+  footer { background: #0d1a0d; padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(200,223,192,0.08); margin-top: 5rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; color: rgba(200,223,192,0.6); font-size: 1rem; }
+  .footer-text { color: rgba(200,223,192,0.35); font-size: 0.85rem; font-weight: 300; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Lawrenceville Woods</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="trails.html" class="active">Trails</a></li>
+    <li><a href="trees.html">Tree Species</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-label">Trails</span>
+  <h1>Paths Through the Woods</h1>
+  <p>Discover the routes that wind through Lawrenceville's named forest zones.</p>
+</div>
+
+<div class="trails-section">
+  <div class="coming-soon">
+    <h2>Trail Data Coming Soon</h2>
+    <p>We are currently mapping all trails through the woods. Check back soon for detailed route information, distances, and difficulty ratings.</p>
+  </div>
+
+  <div class="trail-placeholder">
+    <div class="trail-card">
+      <h3>Bowl Woods Loop</h3>
+      <div class="trail-meta">
+        <span class="trail-tag">Coming Soon</span>
+        <span class="trail-tag">Loop</span>
+      </div>
+      <p class="trail-desc">A circular route through the Bowl Woods zone and back.</p>
+    </div>
+    <div class="trail-card">
+      <h3>Zen to Meadow Path</h3>
+      <div class="trail-meta">
+        <span class="trail-tag">Coming Soon</span>
+        <span class="trail-tag">Point to Point</span>
+      </div>
+      <p class="trail-desc">Connecting Zen Woods to the open Meadow Woods area.</p>
+    </div>
+    <div class="trail-card">
+      <h3>Hamil Woods Trail</h3>
+      <div class="trail-meta">
+        <span class="trail-tag">Coming Soon</span>
+        <span class="trail-tag">Out & Back</span>
+      </div>
+      <p class="trail-desc">A route through the mature hardwood forest of Hamil Woods.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Lawrenceville Woods</div>
+  <div class="footer-text">The Lawrenceville School &nbsp;·&nbsp; New Jersey</div>
+</footer>
+</body>
+</html>
