@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meadow Woods · Lawrenceville Woods</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --forest: #1a3a1a; --fern: #4a7c3f; --sage: #7aaa6a; --mist: #c8dfc0; --cream: #f4f0e6; --gold: #c8a84b; --accent: #4CAF50; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--forest); font-family: 'Crimson Pro', Georgia, serif; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3rem; background: rgba(26,58,26,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(200,223,192,0.15); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--mist); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--mist); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  .page-hero { background: var(--forest); padding: 9rem 6rem 5rem; position: relative; overflow: hidden; }
+  .hero-accent { position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--accent); }
+  .back-link { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,223,192,0.45); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem; transition: color 0.3s; }
+  .back-link:hover { color: var(--sage); }
+  .zone-number { font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--cream); line-height: 1.1; margin-bottom: 1.5rem; }
+  .hero-desc { font-size: 1.2rem; color: rgba(200,223,192,0.7); font-weight: 300; max-width: 600px; line-height: 1.8; }
+
+  .content { max-width: 1100px; margin: 0 auto; padding: 5rem 4rem; }
+
+  .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; margin-bottom: 4rem; }
+
+  .main-text .section-label { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--fern); margin-bottom: 1rem; font-weight: 500; display: block; }
+  .main-text h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--forest); margin-bottom: 1.5rem; }
+  .main-text p { font-size: 1.15rem; line-height: 1.95; color: #3d3d2d; font-weight: 300; margin-bottom: 1.2rem; }
+
+  .facts-panel { background: var(--forest); padding: 2.5rem; border-top: 3px solid var(--accent); }
+  .facts-title { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; display: block; }
+  .fact-item { padding: 1rem 0; border-bottom: 1px solid rgba(200,223,192,0.1); }
+  .fact-item:last-child { border-bottom: none; }
+  .fact-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(200,223,192,0.4); margin-bottom: 0.3rem; display: block; }
+  .fact-value { font-size: 1.05rem; color: var(--mist); font-weight: 300; }
+
+  .map-link { display: inline-block; margin-top: 3rem; padding: 0.85rem 2rem; background: var(--fern); color: var(--cream); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.3s; }
+  .map-link:hover { background: var(--sage); }
+
+  footer { background: #0d1a0d; padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(200,223,192,0.08); margin-top: 2rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; color: rgba(200,223,192,0.6); font-size: 1rem; }
+  .footer-text { color: rgba(200,223,192,0.35); font-size: 0.85rem; font-weight: 300; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Lawrenceville Woods</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="trails.html">Trails</a></li>
+    <li><a href="trees.html">Tree Species</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-accent"></div>
+  <a href="index.html" class="back-link">← Back to all zones</a>
+  <span class="zone-number">Zone 05</span>
+  <h1>Meadow Woods</h1>
+  <p class="hero-desc">The transitional edge where Lawrenceville's woodland meets open meadow — one of the most ecologically diverse zones on campus.</p>
+</div>
+
+<div class="content">
+  <div class="content-grid">
+    <div class="main-text">
+      <span class="section-label">Overview</span>
+      <h2>Where Two Habitats Meet</h2>
+      <p>Meadow Woods occupies the ecological edge between closed forest and open grassland — a transition zone known in ecology as an ecotone. These boundary areas are often the most biologically rich, supporting species from both adjacent habitats as well as specialists that exist only in the transitional zone itself.</p><p>In spring and early summer, the meadow portion of this zone is rich with wildflowers and grasses that attract pollinators. The woodland edge provides cover and nesting sites for birds and small mammals that feed in the open meadow but retreat to the trees for shelter.</p><p>For the school's bat research, Meadow Woods is a critical site. Bats are known to forage heavily along woodland edges, where insect density is typically highest. The open flight paths between meadow and forest make this one of the most productive zones for acoustic bat surveys.</p>
+      <a href="map.html" class="map-link">View on Map</a>
+    </div>
+    <div class="facts-panel">
+      <span class="facts-title">Key Facts</span>
+      <div class="fact-item"><span class="fact-label">Zone Type</span><span class="fact-value">Forest-meadow ecotone</span></div><div class="fact-item"><span class="fact-label">Habitat</span><span class="fact-value">Edge / transitional</span></div><div class="fact-item"><span class="fact-label">Seasonal Interest</span><span class="fact-value">Spring wildflowers</span></div><div class="fact-item"><span class="fact-label">Bat Survey Value</span><span class="fact-value">Very high</span></div><div class="fact-item"><span class="fact-label">Biodiversity</span><span class="fact-value">Among highest on campus</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Lawrenceville Woods</div>
+  <div class="footer-text">The Lawrenceville School &nbsp;·&nbsp; New Jersey</div>
+</footer>
+</body>
+</html>

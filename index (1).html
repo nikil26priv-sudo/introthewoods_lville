@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lawrenceville Woods</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a1a; --fern: #4a7c3f; --sage: #7aaa6a;
+    --mist: #c8dfc0; --cream: #f4f0e6; --gold: #c8a84b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--forest); font-family: 'Crimson Pro', Georgia, serif; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(26,58,26,0.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,223,192,0.15);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--mist); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--mist); text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    height: 100vh; position: relative;
+    display: flex; align-items: center; padding: 0 8rem;
+    overflow: hidden; background: var(--forest);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(74,124,63,0.25) 0%, transparent 55%),
+                radial-gradient(ellipse at 30% 70%, rgba(45,90,27,0.3) 0%, transparent 50%);
+  }
+
+  /* Animated trees */
+  .tree-silhouettes {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
+    display: flex; align-items: flex-end; justify-content: space-around; opacity: 0.35;
+  }
+  .tree { animation: sway 6s ease-in-out infinite; }
+  .tree:nth-child(2) { animation-delay: -1s; }
+  .tree:nth-child(3) { animation-delay: -2.5s; }
+  .tree:nth-child(4) { animation-delay: -0.8s; }
+  .tree:nth-child(5) { animation-delay: -3s; }
+  .tree:nth-child(6) { animation-delay: -1.5s; }
+  .tree:nth-child(7) { animation-delay: -2s; }
+  @keyframes sway { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(1deg); } }
+  .tree svg { display: block; }
+
+  .hero-content { position: relative; z-index: 2; max-width: 640px; animation: fadeUp 1.2s ease forwards; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--sage); margin-bottom: 2rem; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 6.5rem); color: var(--cream); line-height: 1.05; margin-bottom: 2rem; }
+  .hero-title em { font-style: italic; color: var(--sage); }
+  .hero-subtitle { font-size: 1.2rem; color: rgba(200,223,192,0.75); font-weight: 300; line-height: 1.8; margin-bottom: 3.5rem; max-width: 440px; }
+  .hero-cta { display: flex; gap: 1.5rem; }
+  .btn { padding: 0.85rem 2rem; font-family: 'Crimson Pro', serif; font-size: 0.95rem; letter-spacing: 0.08em; text-decoration: none; transition: all 0.3s; text-transform: uppercase; }
+  .btn-primary { background: var(--fern); color: var(--cream); border: 1px solid var(--fern); }
+  .btn-primary:hover { background: var(--sage); border-color: var(--sage); }
+  .btn-outline { background: transparent; color: var(--mist); border: 1px solid rgba(200,223,192,0.35); }
+  .btn-outline:hover { border-color: var(--mist); }
+  .scroll-hint { position: absolute; bottom: 2.5rem; right: 3rem; color: rgba(122,170,106,0.6); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.75rem; }
+  .scroll-hint::after { content: ''; display: block; width: 1px; height: 60px; background: rgba(122,170,106,0.4); }
+
+  /* INTRO */
+  .intro { display: grid; grid-template-columns: 1fr 1fr; min-height: 65vh; }
+  .intro-text { background: var(--cream); padding: 7rem 5rem; display: flex; flex-direction: column; justify-content: center; }
+  .section-label { font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--fern); margin-bottom: 1.5rem; font-weight: 500; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--forest); line-height: 1.2; margin-bottom: 1.75rem; }
+  .section-body { font-size: 1.15rem; line-height: 1.95; color: #3d3d2d; font-weight: 300; max-width: 460px; }
+  .section-body p + p { margin-top: 1.1rem; }
+  .intro-visual { background: var(--forest); display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background-color: rgba(200,223,192,0.08); }
+  .stat-item { background: var(--forest); padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: flex-end; transition: background 0.4s; border: 1px solid rgba(200,223,192,0.06); }
+  .stat-item:hover { background: rgba(74,124,63,0.2); }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--sage); display: block; line-height: 1; margin-bottom: 0.6rem; }
+  .stat-label { font-size: 0.75rem; letter-spacing: 0.15em; color: rgba(200,223,192,0.6); text-transform: uppercase; font-weight: 300; }
+
+  /* ZONES */
+  .zones { background: var(--forest); padding: 7rem 4rem; }
+  .zones-header { display: flex; justify-content: space-between; align-items: flex-end; max-width: 1200px; margin: 0 auto 4rem; }
+  .zones-header-left .section-label { color: var(--sage); }
+  .zones-header-left .section-title { color: var(--cream); margin-bottom: 0; }
+  .zones-header-right { font-size: 1rem; color: rgba(200,223,192,0.5); font-weight: 300; max-width: 280px; line-height: 1.7; text-align: right; }
+  .zones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; max-width: 1200px; margin: 0 auto; background: rgba(200,223,192,0.08); }
+  .zone-card { background: var(--forest); padding: 2.5rem 1.75rem; border-top: 2px solid transparent; transition: all 0.4s; text-decoration: none; display: block; }
+  .zone-card:hover { background: rgba(255,255,255,0.07); }
+  .zone-card.blue { border-top-color: #2196F3; }
+  .zone-card.purple { border-top-color: #9C27B0; }
+  .zone-card.orange { border-top-color: #FF5722; }
+  .zone-card.red { border-top-color: #F44336; }
+  .zone-card.green { border-top-color: #4CAF50; }
+  .zone-card.yellow { border-top-color: #FFC107; }
+  .zone-card.teal { border-top-color: #009688; }
+  .zone-number { font-size: 0.85rem; color: rgba(200,223,192,0.3); margin-bottom: 1.5rem; display: block; letter-spacing: 0.1em; font-family: 'Playfair Display', serif; }
+  .zone-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); margin-bottom: 0.75rem; line-height: 1.3; }
+  .zone-desc { font-size: 0.9rem; color: rgba(200,223,192,0.5); font-weight: 300; line-height: 1.75; }
+  .zone-link { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-top: 1.25rem; display: block; transition: letter-spacing 0.3s; }
+  .zone-card:hover .zone-link { letter-spacing: 0.18em; }
+
+  /* QUICK LINKS */
+  .quicklinks { display: grid; grid-template-columns: repeat(3,1fr); }
+  .ql-item { padding: 5rem 3.5rem; text-decoration: none; position: relative; display: flex; flex-direction: column; justify-content: flex-end; transition: all 0.4s; border-right: 1px solid rgba(200,223,192,0.08); min-height: 300px; }
+  .ql-item:last-child { border-right: none; }
+  .ql-item:nth-child(1) { background: #1e3d1e; }
+  .ql-item:nth-child(2) { background: #243d18; }
+  .ql-item:nth-child(3) { background: #1a3a28; }
+  .ql-item:hover { filter: brightness(1.15); }
+  .ql-number { position: absolute; top: 2.5rem; left: 3.5rem; font-size: 0.7rem; letter-spacing: 0.2em; color: rgba(200,223,192,0.3); text-transform: uppercase; }
+  .ql-arrow { position: absolute; top: 2.5rem; right: 2.5rem; color: rgba(200,223,192,0.3); font-size: 1.1rem; transition: transform 0.3s, color 0.3s; }
+  .ql-item:hover .ql-arrow { transform: translate(3px,-3px); color: var(--sage); }
+  .ql-title { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--cream); margin-bottom: 0.4rem; }
+  .ql-sub { font-size: 0.85rem; color: var(--sage); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 300; }
+
+  footer { background: #0d1a0d; padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(200,223,192,0.08); }
+  .footer-logo { font-family: 'Playfair Display', serif; color: rgba(200,223,192,0.6); font-size: 1rem; }
+  .footer-text { color: rgba(200,223,192,0.35); font-size: 0.85rem; font-weight: 300; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Lawrenceville Woods</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="trails.html">Trails</a></li>
+    <li><a href="trees.html">Tree Species</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="tree-silhouettes">
+    <div class="tree"><svg width="60" height="200" viewBox="0 0 60 200"><polygon points="30,0 0,120 20,120 10,200 50,200 40,120 60,120" fill="#2d5a1b"/></svg></div>
+    <div class="tree"><svg width="80" height="260" viewBox="0 0 80 260"><polygon points="40,0 0,150 25,150 15,260 65,260 55,150 80,150" fill="#1a3a1a"/></svg></div>
+    <div class="tree"><svg width="50" height="180" viewBox="0 0 50 180"><polygon points="25,0 0,100 16,100 8,180 42,180 34,100 50,100" fill="#4a7c3f"/></svg></div>
+    <div class="tree"><svg width="90" height="280" viewBox="0 0 90 280"><polygon points="45,0 0,160 30,160 18,280 72,280 60,160 90,160" fill="#2d5a1b"/></svg></div>
+    <div class="tree"><svg width="55" height="210" viewBox="0 0 55 210"><polygon points="27,0 0,120 18,120 10,210 45,210 37,120 55,120" fill="#1a3a1a"/></svg></div>
+    <div class="tree"><svg width="75" height="240" viewBox="0 0 75 240"><polygon points="37,0 0,140 24,140 14,240 61,240 51,140 75,140" fill="#4a7c3f"/></svg></div>
+    <div class="tree"><svg width="45" height="170" viewBox="0 0 45 170"><polygon points="22,0 0,90 14,90 7,170 38,170 31,90 45,90" fill="#2d5a1b"/></svg></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">The Lawrenceville School &nbsp;·&nbsp; New Jersey</p>
+    <h1 class="hero-title">Into the<br><em>Woods</em></h1>
+    <p class="hero-subtitle">Explore the forests, trails, and living ecosystems woven through the Lawrenceville campus.</p>
+    <div class="hero-cta">
+      <a href="map.html" class="btn btn-primary">Explore the Map</a>
+      <a href="trails.html" class="btn btn-outline">View Trails</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<section class="intro">
+  <div class="intro-text">
+    <p class="section-label">About the Woods</p>
+    <h2 class="section-title">A Forest Within a School</h2>
+    <div class="section-body">
+      <p>Stretching across the eastern edge of the Lawrenceville campus, the school woods are more than a backdrop — they are a living classroom, a sanctuary, and an ecosystem in their own right.</p>
+      <p>From Bowl Woods to the Meadow, each named section carries its own character: dense canopy, open meadow, creek-side habitat, and forested adventure. Together they form one of the most distinctive features of the Lawrenceville landscape.</p>
+    </div>
+  </div>
+  <div class="intro-visual">
+    <div class="stat-item">
+      <span class="stat-number">5</span>
+      <span class="stat-label">Named Zones</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">NJ</span>
+      <span class="stat-label">Lawrence Township</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">6</span>
+      <span class="stat-label">Study Sites</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">∞</span>
+      <span class="stat-label">Species to Find</span>
+    </div>
+  </div>
+</section>
+
+<section class="zones">
+  <div class="zones-header">
+    <div class="zones-header-left">
+      <p class="section-label">All Zones</p>
+      <h2 class="section-title">The Woods &<br>Grounds</h2>
+    </div>
+    <div class="zones-header-right">
+      Each section of the campus has its own distinct ecology, history, and character.
+    </div>
+  </div>
+  <div class="zones-grid">
+    <a href="bowl-woods.html" class="zone-card blue">
+      <span class="zone-number">01</span>
+      <h3 class="zone-name">Bowl Woods</h3>
+      <p class="zone-desc">A sheltered bowl-shaped depression with dense understory and a cool microclimate.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+    <a href="zen-woods.html" class="zone-card purple">
+      <span class="zone-number">02</span>
+      <h3 class="zone-name">Zen Woods</h3>
+      <p class="zone-desc">A quiet, contemplative section of the forest ideal for observation and reflection.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+    <a href="ropes-woods.html" class="zone-card orange">
+      <span class="zone-number">03</span>
+      <h3 class="zone-name">Ropes Course Woods</h3>
+      <p class="zone-desc">Home to the school's outdoor ropes course, where trees become infrastructure for challenge.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+    <a href="hamil-woods.html" class="zone-card red">
+      <span class="zone-number">04</span>
+      <h3 class="zone-name">Hamil Woods</h3>
+      <p class="zone-desc">One of the larger forested sections with mature hardwoods and a rich woodland floor.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+    <a href="meadow-woods.html" class="zone-card green">
+      <span class="zone-number">05</span>
+      <h3 class="zone-name">Meadow Woods</h3>
+      <p class="zone-desc">Where forest meets open meadow — a transitional habitat rich in edge species.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+    <a href="solar.html" class="zone-card yellow">
+      <span class="zone-number">06</span>
+      <h3 class="zone-name">Solar Panel Field</h3>
+      <p class="zone-desc">The school's renewable energy installation, powering the campus sustainably.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+    <a href="golf.html" class="zone-card teal">
+      <span class="zone-number">07</span>
+      <h3 class="zone-name">Golf Course</h3>
+      <p class="zone-desc">A maintained green space bordering the natural woodland areas of campus.</p>
+      <span class="zone-link">Learn more →</span>
+    </a>
+  </div>
+</section>
+
+<div class="quicklinks">
+  <a href="map.html" class="ql-item">
+    <span class="ql-number">01</span>
+    <span class="ql-arrow">↗</span>
+    <h3 class="ql-title">Interactive Map</h3>
+    <p class="ql-sub">Explore all zones</p>
+  </a>
+  <a href="trails.html" class="ql-item">
+    <span class="ql-number">02</span>
+    <span class="ql-arrow">↗</span>
+    <h3 class="ql-title">Trails</h3>
+    <p class="ql-sub">Routes & distances</p>
+  </a>
+  <a href="trees.html" class="ql-item">
+    <span class="ql-number">03</span>
+    <span class="ql-arrow">↗</span>
+    <h3 class="ql-title">Tree Species</h3>
+    <p class="ql-sub">Flora & identification</p>
+  </a>
+</div>
+
+<footer>
+  <div class="footer-logo">Lawrenceville Woods</div>
+  <div class="footer-text">The Lawrenceville School &nbsp;·&nbsp; New Jersey</div>
+</footer>
+</body>
+</html>
